@@ -1,0 +1,48 @@
+/*card*/
+/*card-day*/
+/*card-date*/
+/*card-icon*/
+/*card-weather*/
+/*card-country*/
+/*card-precip*/
+
+.card{
+    border: 1px solid white;
+    border-radius: 10px ;
+    margin: 20px;
+    background-color: #2e3035;
+    padding: 10px;
+    max-height: 200px;
+    max-width:150px;
+    /*min-height: 200px;*/
+
+}
+.card-icon img {
+    height: 30px;
+}
+.card-day{
+    color: #ffffff;
+    margin-top: 10px;
+    font-size: 120%;
+}
+.card-date{
+    color: #939cb0;
+    font-size: 100%;
+
+}
+.card-weather{
+    color: #ffffff;
+
+}
+.card-country{
+    color:#939cb0;
+}
+.card-precip{
+    color:#939cb0;
+    margin-bottom: 10px;
+}
+.card div{
+    margin-left: 5px;
+    margin-right: 10px;
+    margin-top: 5px
+}
