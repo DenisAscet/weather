@@ -1,7 +1,9 @@
-import { put,spawn,fork, takeEvery, call } from "redux-saga/effects"
+import { put,spawn, takeEvery, call } from "redux-saga/effects"
+
 export const  getWeather = async ()  => {
 
     const _APIKey = "d8ba8c5bae6c4b6f828134522222810"
+
 
     const select = document.getElementById("city-selector")
     const cityData = select.value

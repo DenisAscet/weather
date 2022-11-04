@@ -5,7 +5,7 @@ import { fork,all } from "redux-saga/effects"
 
 export function* rootSaga() {
      yield all([
-          fork(citiesWatcher),
-          fork(weatherWatcher)
+          yield fork(citiesWatcher),
+          yield fork(weatherWatcher)
      ])
 }
