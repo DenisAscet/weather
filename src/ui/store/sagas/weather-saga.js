@@ -19,7 +19,6 @@ export const  getWeather = async ()  => {
 
 export function* loadWeather() {
     const data = yield call(getWeather)
-    console.log(data)
     yield put({type:"FETCH_WEATHER_REQUEST"})
     yield put({type:"FETCH_WEATHER_SUCCESS", payload: data})
 }

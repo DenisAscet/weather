@@ -11,8 +11,10 @@ export const Header = () => {
 
     useEffect(() => {
         dispatch({type : "SET_CURRENT_CITY", payload: currentCity})
-        dispatch({type: "FETCH_WEATHER"})
-    },[currentCity])
+        if (cities) {
+            dispatch({type: "FETCH_WEATHER"})
+        }
+    },[currentCity, cities ])
 
 
     return(

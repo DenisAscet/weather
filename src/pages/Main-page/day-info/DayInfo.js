@@ -4,8 +4,11 @@ import {imgReducer} from "../../../ui/imgReducer/img-reducer";
 
 export const DayInfo = () => {
 
-    // const city = useSelector(state => state.weather.weather.location.name)
-    // const temp = useSelector( state => state.weather.weather.current.temp_c )
+    const city = useSelector(state => state.weather.weather.location.name)
+    console.log("city", city)
+    const temp = useSelector( state => state.weather.weather.current.temp_c )
+    console.log(temp)
+
 
     const updateTime = (date) => {
         let minutes = date.getMinutes();
@@ -31,12 +34,12 @@ export const DayInfo = () => {
        <div className="day-info">
            <div className="text-block">
                <div className="temperature">
-                   {/*{temp}*/}
+                   {temp}
                    {`\u2103`}</div>
                <div className="day">today</div>
                <div className="time">time: {time.hours}:{time.minutes}</div>
                <div className="city"> City:
-                   {/*{city}*/}
+                   {city}
                </div>
            </div>
            <img src={imgReducer("rain")}/>
