@@ -3,6 +3,7 @@
     border-radius: 20px;
     background-color: #4f4f4f;
     margin-left: 40px;
+    margin-right: 19%;
 }
 .day-string{
     display: flex;
@@ -21,6 +22,6 @@
 .day-weather div{
     color: #eaeaea;
 }
-.day-weather .attribute{
-    margin-left: 30px;
+.day-weather .attribute-name{
+    margin-right: 80px;
 }

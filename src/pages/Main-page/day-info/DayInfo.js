@@ -1,13 +1,16 @@
 import "./DayInfo.css"
 import { useSelector } from "react-redux";
 import {imgReducer} from "../../../ui/imgReducer/img-reducer";
+import {ErrorIndicator} from "../../../ui";
 
 export const DayInfo = () => {
 
+
     const city = useSelector(state => state.weather.weather.location.name)
-    console.log("city", city)
     const temp = useSelector( state => state.weather.weather.current.temp_c )
-    console.log(temp)
+    const weatherIcon = useSelector(state => state.weather.weather.current.condition.icon)
+
+    const weatherState = useSelector(state => state.weather.weather)
 
 
     const updateTime = (date) => {
@@ -29,20 +32,23 @@ export const DayInfo = () => {
         time = updateTime(new Date())
     }, 60000)
 
+    if (weatherState.error){
+        return <ErrorIndicator/>
+    }
 
     return(
        <div className="day-info">
            <div className="text-block">
-               <div className="temperature">
+               <div className="temperature text-in-info">
                    {temp}
                    {`\u2103`}</div>
-               <div className="day">today</div>
-               <div className="time">time: {time.hours}:{time.minutes}</div>
-               <div className="city"> City:
+               <div className="day text-in-info">today</div>
+               <div className="time text-in-info">time: {time.hours}:{time.minutes}</div>
+               <div className="city text-in-info"> City:
                    {city}
                </div>
            </div>
-           <img src={imgReducer("rain")}/>
+           <img src={weatherIcon}/>
        </div>
     )
 }

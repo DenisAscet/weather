@@ -1,76 +1,25 @@
 import { Card } from "./card/card";
 import "./cards.css"
+import {useSelector} from "react-redux";
+import {ErrorBoundry} from "../../../ui";
 
 export const Cards = () => {
+    const days = useSelector(state => state.weather.weather.forecast.forecastday)
 
-    const days = [
-        {
-            day: 'day',
-            date: 1,
-            icon:'icon',
-            weather: 'weather',
-            country:'country',
-            precip:'precip'
-        },
-        {
-            day:'day2',
-            date:2,
-            icon: 'icon2',
-            weather:'weather2',
-            country:'country2',
-            precip:"precip2"
-        },
-        {
-            day:'day2',
-            date:3,
-            icon: 'icon2',
-            weather:'weather2',
-            country:'country2',
-            precip:"precip2"
-        },
-        {
-            day:'day2',
-            date:4,
-            icon: 'icon2',
-            weather:'weather2',
-            country:'country2',
-            precip:"precip2"
-        },
-        {
-            day:'day2',
-            date:5,
-            icon: 'icon2',
-            weather:'weather2',
-            country:'country2',
-            precip:"precip2"
-        },
-        {
-            day:'day2',
-            date:6,
-            icon: 'icon2',
-            weather:'weather2',
-            country:'country2',
-            precip:"precip2"
-        },
-        {
-            day:'day2',
-            date:7,
-            icon: 'icon2',
-            weather:'weather2',
-            country:'country2',
-            precip:"precip2"
-        }
-    ]
+    if (days[0].date !== undefined) {
+        return (
+            <div className="cards">
+                {
+                    days.map((day) => {
+                        return (
+                            <ErrorBoundry>
+                                <Card card={day} key={day.date_epoch}/>
+                            </ErrorBoundry>)
 
-    return(
-        <div className="cards">
-            {
-                days.map((day) => {
+                    })
+                }
+            </div>
+        )
 
-                    return(<Card card={day} key={day.date}/>)
-
-                })
-            }
-        </div>
-    )
+    }
 }

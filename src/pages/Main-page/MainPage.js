@@ -2,11 +2,9 @@ import {DayWeather} from "./day-weather/DayWeather";
 import { DayInfo} from "./day-info/DayInfo"
 import { Cards } from "../index"
 import {useDispatch, useSelector} from "react-redux";
+import {ErrorBoundry} from "../../ui";
 
 export const MainPage = () => {
-
-    const dispatch = useDispatch()
-    const currentCity = useSelector(store=> store.cities.currentCity)
 
     return(
         <div>
@@ -14,7 +12,9 @@ export const MainPage = () => {
                 <DayInfo/>
                 <DayWeather/>
             </div>
-            <Cards/>
+            <ErrorBoundry>
+                <Cards/>
+            </ErrorBoundry>
         </div>
     )
 }

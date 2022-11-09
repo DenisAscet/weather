@@ -1,24 +1,15 @@
-/*card*/
-/*card-day*/
-/*card-date*/
-/*card-icon*/
-/*card-weather*/
-/*card-country*/
-/*card-precip*/
-
 .card{
     border: 1px solid white;
     border-radius: 10px ;
-    margin: 20px;
+    margin: 18px;
     background-color: #2e3035;
     padding: 10px;
     max-height: 200px;
     max-width:150px;
-    /*min-height: 200px;*/
 
 }
 .card-icon img {
-    height: 30px;
+    height: 40px;
 }
 .card-day{
     color: #ffffff;
