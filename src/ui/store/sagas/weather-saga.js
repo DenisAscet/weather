@@ -7,7 +7,7 @@ import {
 
 export const  getWeather = async ()  => {
 
-    const _APIKey = "d8ba8c5bae6c4b6f828134522222810"
+    const _APIKey = "69f65edffd8c4f1e909151927221111"
 
 
     const select = document.getElementById("city-selector")
@@ -24,10 +24,12 @@ export const  getWeather = async ()  => {
 export function* loadWeather() {
 
     const data = yield call(getWeather)
-    try {
+
+    if (!data.error) {
         yield put(fetchWeatherRequest())
         yield put(fetchWeatherSuccess(data))
-    } catch (err) {
+    } else {
+        console.log(data)
         yield put(fetchWeatherFailure(data))
     }
 }

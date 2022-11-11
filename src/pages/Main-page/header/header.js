@@ -1,7 +1,7 @@
 import "./header.css"
 import {useEffect, useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {fetchWeather, fetchWeatherFailure, setCurrentCity} from "../../../ui";
+import {fetchWeather, setCurrentCity} from "../../../ui";
 
 export const Header = () => {
 
@@ -15,8 +15,6 @@ export const Header = () => {
         if (cities) {
             dispatch(fetchWeather())
         }
-        dispatch(fetchWeatherFailure(false))
-
     },[currentCity, cities ])
 
 

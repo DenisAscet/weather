@@ -1,19 +1,15 @@
 import "./card.css"
-import {useEffect} from "react";
 
 export const Card = ( {card} ) => {
     const {
         date,
         day: {
-            avgtemp_c,
             condition: {
-                code,
                 icon,
-                text},
+            },
             maxtemp_c,
             mintemp_c,
             maxwind_kph,
-            totalprecip_mm,
         },
     } = card;
 

@@ -1,4 +1,4 @@
-import { put,spawn,fork,takeEvery ,call } from "redux-saga/effects"
+import { put,spawn,takeEvery ,call } from "redux-saga/effects"
 import {fetchCitiesRequest, successCitiesSuccess} from "../reducers/action-creactors/cities-action-creators";
 
 async function getCities() {

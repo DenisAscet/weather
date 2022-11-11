@@ -11,10 +11,10 @@
     background-color: #4f4f4f;
 }
 .day-info img{
-    height: 9rem;
-    margin-top: 20%;
-    margin-right: 50px;
-    margin-left: 30px;
+    height: 100px;
+    margin-top: 70px;
+    margin-right: 10px;
+    margin-left: 40px;
 }
 .text-block{
     margin-left: 30px;
@@ -44,4 +44,13 @@
     font-size:120%;
     margin-top:2%;
     margin-bottom: 20px;
+}
+.day-info-image-block {
+    color: white ;
+    font-size: 200%;
+    justify-content: center;
+}
+.image-info {
+    text-align: center;
+
 }

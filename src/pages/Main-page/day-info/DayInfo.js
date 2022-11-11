@@ -10,6 +10,7 @@ export const DayInfo = () => {
         temp = temp.toString().slice(0,1);
     }
     const weatherIcon = useSelector(state => state.weather.weather.current.condition.icon);
+    const weatherText = useSelector(state => state.weather.weather.current.condition.text);
     const weatherState = useSelector(state => state.weather.weather);
 
     const updateTime = (date) => {
@@ -47,7 +48,10 @@ export const DayInfo = () => {
                    {city}
                </div>
            </div>
-           <img src={weatherIcon}/>
+           <div className="day-info-image-block">
+               <img src={weatherIcon}/>
+               <div className="image-info">{weatherText}</div>
+           </div>
        </div>
     );
 };
