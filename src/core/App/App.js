@@ -19,7 +19,10 @@ export const App = () => {
 
     if (weatherState.error) {
         return(
-            <ErrorIndicator/>
+            <div className="App">
+                <Header/>
+                <ErrorIndicator/>
+            </div>
         )
     }
     return (

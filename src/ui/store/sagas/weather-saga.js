@@ -15,23 +15,24 @@ export const  getWeather = async ()  => {
     const city = cityData[0].toUpperCase() + cityData.slice(1).toLowerCase()
 
     let weather = {}
+    try {
+        await fetch(`http://api.weatherapi.com/v1/forecast.json?key=${_APIKey}&q=${city}&days=7`)
+            .then(data=> data.json())
+            .then(data => weather = data)
+        return weather
+    } catch ( error ) {
 
-    await fetch(`http://api.weatherapi.com/v1/forecast.json?key=${_APIKey}&q=${city}&days=7`)
-        .then(data=> data.json())
-        .then(data => weather = data)
-    return weather
-
+    }
 }
 
 export function* loadWeather() {
 
     const data = yield call(getWeather)
-    console.log(data.error)
-    if(data.error) {
-        yield put(fetchWeatherFailure(data))
-    } else {
+    try {
         yield put(fetchWeatherRequest())
         yield put(fetchWeatherSuccess(data))
+    } catch ( error ) {
+        yield put(fetchWeatherFailure(data))
     }
 
 
