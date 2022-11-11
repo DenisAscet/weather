@@ -13,7 +13,7 @@ export const Cards = () => {
                     days.map((day) => {
                         return (
                             <ErrorBoundry>
-                                <Card card={day} key={day.date_epoch}/>
+                                <Card card={day} key={day.date}/>
                             </ErrorBoundry>)
 
                     })

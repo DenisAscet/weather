@@ -15,14 +15,10 @@ export const  getWeather = async ()  => {
     const city = cityData[0].toUpperCase() + cityData.slice(1).toLowerCase()
 
     let weather = {}
-    try {
         await fetch(`http://api.weatherapi.com/v1/forecast.json?key=${_APIKey}&q=${city}&days=7`)
             .then(data=> data.json())
             .then(data => weather = data)
         return weather
-    } catch ( error ) {
-
-    }
 }
 
 export function* loadWeather() {
@@ -31,11 +27,9 @@ export function* loadWeather() {
     try {
         yield put(fetchWeatherRequest())
         yield put(fetchWeatherSuccess(data))
-    } catch ( error ) {
+    } catch (err) {
         yield put(fetchWeatherFailure(data))
     }
-
-
 }
 
 export function* weatherWorker() {

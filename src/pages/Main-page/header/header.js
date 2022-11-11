@@ -19,6 +19,7 @@ export const Header = () => {
 
     },[currentCity, cities ])
 
+
     return(
         <div className="header">
                 <div className="left-block">

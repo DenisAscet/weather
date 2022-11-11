@@ -40,7 +40,7 @@ export const Card = ( {card} ) => {
     }
 
     return (
-        <div className="card" key = {card.date_epoch}>
+        <div className="card" key = {card.date}>
             <div className="card-day">{dayOfWeek(date)}</div>
             <div className="card-date">{date.slice(2,4)}.{date.slice(5,7)}.{date.slice(8,12)}</div>
             <div className="card-icon card-icon-text" >

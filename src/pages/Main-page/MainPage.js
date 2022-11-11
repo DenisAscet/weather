@@ -3,7 +3,6 @@ import { DayInfo} from "./day-info/DayInfo"
 import { Cards } from "../index"
 import {ErrorBoundry, ErrorIndicator} from "../../ui";
 import {useSelector} from "react-redux";
-import {Header} from "./header/header";
 
 export const MainPage = () => {
 

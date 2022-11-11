@@ -282,20 +282,20 @@ export const weatherReducer = (state, action) => {
         case "FETCH_WEATHER_REQUEST":
             return {
                ...state,
-                loading:true,
+                loading: true,
                 error: false
             };
         case "FETCH_WEATHER_SUCCESS":
             return {
                 ...state,
-                weather:action.payload,
-                loading:false,
+                weather: action.payload,
+                loading: false,
                 error: false
             };
         case "FETCH_WEATHER_FAILURE":
             return {
                 ...state,
-                loading:false,
+                loading: false,
                 error: action.payload
             };
         default:
