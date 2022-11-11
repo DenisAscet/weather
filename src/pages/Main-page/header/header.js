@@ -1,7 +1,7 @@
 import "./header.css"
-import {Fragment, useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {ErrorIndicator} from "../../../ui";
+import {fetchWeather, fetchWeatherFailure, setCurrentCity} from "../../../ui";
 
 export const Header = () => {
 
@@ -11,24 +11,13 @@ export const Header = () => {
 
 
     useEffect(() => {
-        dispatch({type : "SET_CURRENT_CITY", payload: currentCity})
+        dispatch(setCurrentCity(currentCity))
         if (cities) {
-            dispatch({type: "FETCH_WEATHER"})
+            dispatch(fetchWeather())
         }
-        dispatch({type:"FETCH_WEATHER_FAILURE", payload:false})
+        dispatch(fetchWeatherFailure(false))
 
     },[currentCity, cities ])
-
-    const weatherError = useSelector(state => state.weather.error)
-    const error = () => {
-        if (weatherError) {
-            return(
-                <div className="unfounded-city">
-                    This city is not found
-                </div>
-            )
-        }
-    }
 
     return(
         <div className="header">

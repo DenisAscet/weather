@@ -270,35 +270,36 @@ export const weatherReducer = (state, action) => {
                                 totalprecip_mm: undefined,
                                 totalsnow_cm: undefined,
                                 uv: undefined,
-                            }
-                        }
-                    ]
-                }
-            }
-        }
+                            },
+                        },
+                    ],
+                },
+            },
+        };
     }
+
     switch (action.type){
         case "FETCH_WEATHER_REQUEST":
             return {
                ...state,
                 loading:true,
                 error: false
-            }
+            };
         case "FETCH_WEATHER_SUCCESS":
             return {
                 ...state,
                 weather:action.payload,
                 loading:false,
                 error: false
-            }
+            };
         case "FETCH_WEATHER_FAILURE":
             return {
                 ...state,
                 loading:false,
                 error: action.payload
-            }
+            };
         default:
-            return state
+            return state;
 
     }
 }

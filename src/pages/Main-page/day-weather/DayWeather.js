@@ -1,20 +1,13 @@
 import "./DayWeather.css"
 import { useSelector } from "react-redux"
 import { imgReducer } from "../../../ui/imgReducer/img-reducer";
-import {ErrorIndicator} from "../../../ui";
 
 export const DayWeather = () => {
 
-    const weather = useSelector(state => state.weather.weather)
-
-    const temperature = useSelector(state => state.weather.weather.current.temp_c)
-    const pressure = useSelector(state => state.weather.weather.current.pressure_mb)
-    const precipitation = useSelector(state => state.weather.weather.current.precip_mm)
-    const wind = useSelector(state => state.weather.weather.current.wind_kph)
-
-    if (weather.error){
-        return <ErrorIndicator/>
-    }
+    const temperature = useSelector(state => state.weather.weather.current.temp_c);
+    const pressure = useSelector(state => state.weather.weather.current.pressure_mb);
+    const precipitation = useSelector(state => state.weather.weather.current.precip_mm);
+    const wind = useSelector(state => state.weather.weather.current.wind_kph);
 
     return (
         <div className="day-weather">
@@ -47,5 +40,5 @@ export const DayWeather = () => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};

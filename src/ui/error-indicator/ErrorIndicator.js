@@ -4,5 +4,5 @@ export const ErrorIndicator = () => {
         <div className="error-indicator">
             City is not found, select another
         </div>
-    )
-}
+    );
+};

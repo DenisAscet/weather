@@ -4,15 +4,18 @@ import {useEffect} from "react";
 export const Card = ( {card} ) => {
     const {
         date,
-        day: { avgtemp_c,
-            condition: {code, icon, text},
+        day: {
+            avgtemp_c,
+            condition: {
+                code,
+                icon,
+                text},
             maxtemp_c,
             mintemp_c,
             maxwind_kph,
             totalprecip_mm,
-
         },
-    } = card
+    } = card;
 
     const dayOfWeek = (date) => {
         const day = new Date(date).getDay();
@@ -20,24 +23,24 @@ export const Card = ( {card} ) => {
             case 0 :
                 return "Вс";
             case 1:
-                return "Пн"
+                return "Пн";
             case 2:
-                return "Вт"
+                return "Вт";
             case 3:
-                return "Ср"
+                return "Ср";
             case 4:
-                return "Чт"
+                return "Чт";
             case 5:
-                return "Пт"
+                return "Пт";
             case 6:
-                return "Сб"
+                return "Сб";
             default:
-                return
+                return;
         }
     }
 
     return (
-        <div className="card" key = {card.date_epoch} >
+        <div className="card" key = {card.date_epoch}>
             <div className="card-day">{dayOfWeek(date)}</div>
             <div className="card-date">{date.slice(2,4)}.{date.slice(5,7)}.{date.slice(8,12)}</div>
             <div className="card-icon card-icon-text" >
@@ -47,5 +50,5 @@ export const Card = ( {card} ) => {
             <div className="card-country">{mintemp_c} {`\u2103`}</div>
             <div className="card-precip">{maxwind_kph} kph</div>
         </div>
-    )
-}
+    );
+};

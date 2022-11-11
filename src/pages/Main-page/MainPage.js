@@ -15,27 +15,22 @@ export const MainPage = () => {
             )
         } else {
             return (
-                <div style={{display:"flex"}}>
-                    <DayInfo/>
-                    <DayWeather/>
+                <div>
+                    <div style={{display:"flex"}}>
+                        <DayInfo/>
+                        <DayWeather/>
+                    </div>
                     <ErrorBoundry>
                         <Cards/>
                     </ErrorBoundry>
                 </div>
             )
         }
-    }
+    };
 
     return(
         <div>
             {DayRenderer()}
-            {/*<div style={{display:"flex"}}>*/}
-            {/*    <DayInfo/>*/}
-            {/*    <DayWeather/>*/}
-            {/*</div>*/}
-            {/*<ErrorBoundry>*/}
-            {/*    <Cards/>*/}
-            {/*</ErrorBoundry>*/}
         </div>
-    )
-}
+    );
+};

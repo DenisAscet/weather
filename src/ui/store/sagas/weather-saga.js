@@ -1,4 +1,9 @@
-import { put,spawn, takeEvery, call } from "redux-saga/effects"
+import { put,spawn, takeEvery, call } from "redux-saga/effects";
+import {
+    fetchWeatherFailure,
+    fetchWeatherRequest,
+    fetchWeatherSuccess
+} from "../reducers/action-creactors/cities-action-creators";
 
 export const  getWeather = async ()  => {
 
@@ -23,10 +28,10 @@ export function* loadWeather() {
     const data = yield call(getWeather)
     console.log(data.error)
     if(data.error) {
-        yield put({type:"FETCH_WEATHER_FAILURE", payload:data})
+        yield put(fetchWeatherFailure(data))
     } else {
-        yield put({type:"FETCH_WEATHER_REQUEST"})
-        yield put({type:"FETCH_WEATHER_SUCCESS", payload: data})
+        yield put(fetchWeatherRequest())
+        yield put(fetchWeatherSuccess(data))
     }
 
 

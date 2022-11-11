@@ -4,16 +4,13 @@ import {ErrorIndicator} from "../../../ui";
 
 export const DayInfo = () => {
 
-
-    const city = useSelector(state => state.weather.weather.location.name)
-    let temp = useSelector( state => state.weather.weather.current.temp_c )
-    // if(temp.toString().length > 2){
-    //     temp = temp.toString().slice(0,1)
-    // }
-    const weatherIcon = useSelector(state => state.weather.weather.current.condition.icon)
-
-    const weatherState = useSelector(state => state.weather.weather)
-
+    const city = useSelector(state => state.weather.weather.location.name);
+    let temp = useSelector( state => state.weather.weather.current.temp_c );
+    if(temp && temp.toString().length > 2){
+        temp = temp.toString().slice(0,1);
+    }
+    const weatherIcon = useSelector(state => state.weather.weather.current.condition.icon);
+    const weatherState = useSelector(state => state.weather.weather);
 
     const updateTime = (date) => {
         let minutes = date.getMinutes();
@@ -26,13 +23,13 @@ export const DayInfo = () => {
             hours:hours,
             minutes:minutes
         }
-    }
+    };
 
-    let time = updateTime(new Date())
+    let time = updateTime(new Date());
 
     setTimeout(() => {
         time = updateTime(new Date())
-    }, 60000)
+    }, 60000);
 
     if (weatherState.error){
         return <ErrorIndicator/>
@@ -52,5 +49,5 @@ export const DayInfo = () => {
            </div>
            <img src={weatherIcon}/>
        </div>
-    )
-}
+    );
+};

@@ -1,4 +1,5 @@
 import { put,spawn,fork,takeEvery ,call } from "redux-saga/effects"
+import {fetchCitiesRequest, successCitiesSuccess} from "../reducers/action-creactors/cities-action-creators";
 
 async function getCities() {
 
@@ -10,20 +11,20 @@ async function getCities() {
             data.data.map((target) => {
                 cities.push(target.city)
             })
-        })
+        });
     return cities;
 }
 
 export function* loadCities() {
-    const data = yield call(getCities)
-    yield put({type:"FETCH_CITIES_REQUEST"})
-    yield put({type:"FETCH_CITIES_SUCCESS", payload: data})
+    const data = yield call(getCities);
+    yield put(fetchCitiesRequest());
+    yield put(successCitiesSuccess(data));
 }
 
 export function* workerCities() {
-    yield spawn(loadCities)
+    yield spawn(loadCities);
 }
 
 export function* citiesWatcher() {
-    yield takeEvery("FETCH_CITIES",workerCities)
+    yield takeEvery("FETCH_CITIES",workerCities);
 }
