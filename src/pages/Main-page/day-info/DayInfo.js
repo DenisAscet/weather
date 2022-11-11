@@ -1,6 +1,5 @@
 import "./DayInfo.css"
 import { useSelector } from "react-redux";
-import {imgReducer} from "../../../ui/imgReducer/img-reducer";
 import {ErrorIndicator} from "../../../ui";
 
 export const DayInfo = () => {
@@ -8,9 +7,9 @@ export const DayInfo = () => {
 
     const city = useSelector(state => state.weather.weather.location.name)
     let temp = useSelector( state => state.weather.weather.current.temp_c )
-    if(temp.toString().length > 2){
-        temp = temp.toString().slice(0,1)
-    }
+    // if(temp.toString().length > 2){
+    //     temp = temp.toString().slice(0,1)
+    // }
     const weatherIcon = useSelector(state => state.weather.weather.current.condition.icon)
 
     const weatherState = useSelector(state => state.weather.weather)

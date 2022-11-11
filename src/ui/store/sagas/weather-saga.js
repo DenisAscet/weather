@@ -21,7 +21,8 @@ export const  getWeather = async ()  => {
 export function* loadWeather() {
 
     const data = yield call(getWeather)
-    if(data.error!= undefined) {
+    console.log(data.error)
+    if(data.error) {
         yield put({type:"FETCH_WEATHER_FAILURE", payload:data})
     } else {
         yield put({type:"FETCH_WEATHER_REQUEST"})
