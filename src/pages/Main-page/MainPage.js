@@ -18,6 +18,9 @@ export const MainPage = () => {
                 <div style={{display:"flex"}}>
                     <DayInfo/>
                     <DayWeather/>
+                    <ErrorBoundry>
+                        <Cards/>
+                    </ErrorBoundry>
                 </div>
             )
         }
@@ -30,9 +33,9 @@ export const MainPage = () => {
             {/*    <DayInfo/>*/}
             {/*    <DayWeather/>*/}
             {/*</div>*/}
-            <ErrorBoundry>
-                <Cards/>
-            </ErrorBoundry>
+            {/*<ErrorBoundry>*/}
+            {/*    <Cards/>*/}
+            {/*</ErrorBoundry>*/}
         </div>
     )
 }

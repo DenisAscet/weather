@@ -28,9 +28,7 @@ export function* loadWeather() {
         yield put({type:"FETCH_WEATHER_REQUEST"})
         yield put({type:"FETCH_WEATHER_SUCCESS", payload: data})
     }
-    // put({type:"FETCH_WEATHER_FAILURE", payload:data})
-    // yield put({type:"FETCH_WEATHER_REQUEST"})
-    // yield put({type:"FETCH_WEATHER_SUCCESS", payload: data})
+
 
 }
 
