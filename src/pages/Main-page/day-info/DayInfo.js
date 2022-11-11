@@ -7,7 +7,10 @@ export const DayInfo = () => {
 
 
     const city = useSelector(state => state.weather.weather.location.name)
-    const temp = useSelector( state => state.weather.weather.current.temp_c )
+    let temp = useSelector( state => state.weather.weather.current.temp_c )
+    if(temp.toString().length > 2){
+        temp = temp.toString().slice(0,1)
+    }
     const weatherIcon = useSelector(state => state.weather.weather.current.condition.icon)
 
     const weatherState = useSelector(state => state.weather.weather)

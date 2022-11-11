@@ -9,21 +9,28 @@ export const  getWeather = async ()  => {
     const cityData = select.value
     const city = cityData[0].toUpperCase() + cityData.slice(1).toLowerCase()
 
-    let answer = {}
+    let weather = {}
 
     await fetch(`http://api.weatherapi.com/v1/forecast.json?key=${_APIKey}&q=${city}&days=7`)
         .then(data=> data.json())
-        .then(data => answer = data)
-        .catch(err => console.log("zalupa"))
-    return answer
+        .then(data => weather = data)
+    return weather
 
 }
 
 export function* loadWeather() {
 
     const data = yield call(getWeather)
-    yield put({type:"FETCH_WEATHER_REQUEST"})
-    yield put({type:"FETCH_WEATHER_SUCCESS", payload: data})
+    if(data.error!= undefined) {
+        yield put({type:"FETCH_WEATHER_FAILURE", payload:data})
+    } else {
+        yield put({type:"FETCH_WEATHER_REQUEST"})
+        yield put({type:"FETCH_WEATHER_SUCCESS", payload: data})
+    }
+    // put({type:"FETCH_WEATHER_FAILURE", payload:data})
+    // yield put({type:"FETCH_WEATHER_REQUEST"})
+    // yield put({type:"FETCH_WEATHER_SUCCESS", payload: data})
+
 }
 
 export function* weatherWorker() {

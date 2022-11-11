@@ -1,6 +1,7 @@
 import "./header.css"
-import { useEffect, useState } from "react";
+import {Fragment, useEffect, useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
+import {ErrorIndicator} from "../../../ui";
 
 export const Header = () => {
 
@@ -14,8 +15,20 @@ export const Header = () => {
         if (cities) {
             dispatch({type: "FETCH_WEATHER"})
         }
+        dispatch({type:"FETCH_WEATHER_FAILURE", payload:false})
+
     },[currentCity, cities ])
 
+    const weatherError = useSelector(state => state.weather.error)
+    const error = () => {
+        if (weatherError) {
+            return(
+                <div className="unfounded-city">
+                    This city is not found
+                </div>
+            )
+        }
+    }
 
     return(
         <div className="header">
@@ -29,19 +42,18 @@ export const Header = () => {
                 <div className="right-block">
                     <select className="custom-select"
                             id="city-selector"
-                            onChange={() => changeCurrentCity(document.getElementById("city-selector").value)}
-                    >
-                        {
-                            cities.map(city => {
-                                return(
-                                    <option
-                                        key ={cities.indexOf(city)}
-                                        value={city}>
-                                    {city}
-                                </option>
-                                )
-                        })
-                        }
+                            onChange={() => changeCurrentCity(document.getElementById("city-selector").value)}>
+                            {
+                                cities.map(city => {
+                                    return(
+                                        <option
+                                            key ={cities.indexOf(city)}
+                                            value={city}>
+                                        {city}
+                                    </option>
+                                    )
+                                })
+                            }
                     </select>
                 </div>
         </div>

@@ -277,7 +277,6 @@ export const weatherReducer = (state, action) => {
             }
         }
     }
-
     switch (action.type){
         case "FETCH_WEATHER_REQUEST":
             return {
@@ -286,20 +285,18 @@ export const weatherReducer = (state, action) => {
                 error: false
             }
         case "FETCH_WEATHER_SUCCESS":
-            console.log(action.payload)
             return {
                 ...state,
                 weather:action.payload,
                 loading:false,
                 error: false
             }
-        // case "FETCH_WEATHER_FAILURE":
-        //     console.log("fetch failure ")
-        //     return {
-        //         ...state,
-        //         loading:false,
-        //         error: action.payload
-        //     }
+        case "FETCH_WEATHER_FAILURE":
+            return {
+                ...state,
+                loading:false,
+                error: action.payload
+            }
         default:
             return state
 

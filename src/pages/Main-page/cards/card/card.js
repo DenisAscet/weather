@@ -37,7 +37,7 @@ export const Card = ( {card} ) => {
     }
 
     return (
-        <div className="card" >
+        <div className="card" key = {card.date_epoch} >
             <div className="card-day">{dayOfWeek(date)}</div>
             <div className="card-date">{date.slice(2,4)}.{date.slice(5,7)}.{date.slice(8,12)}</div>
             <div className="card-icon card-icon-text" >
@@ -47,15 +47,5 @@ export const Card = ( {card} ) => {
             <div className="card-country">{mintemp_c} {`\u2103`}</div>
             <div className="card-precip">{maxwind_kph} kph</div>
         </div>
-        // <div className="card" >
-        //     <div className="card-day">{dayOfWeek(date)}</div>
-        //     <div className="card-date">{date.slice(0,4)}.{date.slice(5,7)}.{date.slice(8,12)}</div>
-        //     <div className="card-icon">
-        //         <img src="https://cdn-icons-png.flaticon.com/128/1163/1163661.png"/>
-        //     </div>
-        //     <div className="card-weather">{maxtemp_c} {`\u2103`}</div>
-        //     <div className="card-country">{mintemp_c} {`\u2103`}</div>
-        //     <div className="card-precip">{totalprecip_mm}mm</div>
-        // </div>
     )
 }

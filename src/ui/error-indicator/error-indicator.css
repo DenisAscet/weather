@@ -1,0 +1,12 @@
+.error-indicator{
+    display: block;
+    padding-top: 30px;
+    text-align: center;
+    height: 50px;
+    color: white;
+    margin: 0px 20%;
+    border: 1px solid white ;
+    border-radius: 20px;
+    background-color: #4f4f4f;
+
+}
